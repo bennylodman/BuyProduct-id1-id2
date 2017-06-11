@@ -1,0 +1,36 @@
+<Root>
+  <Product>
+    <id>g8c2</id>
+    <price>233</price>
+  </Product>
+  <Product>
+    <id>31n0</id>
+    <price>694</price>
+  </Product>
+  <Order>
+    <user-id>p9jc</user-id>
+    <order-id>rt52</order-id>
+    <product-id>4enx</product-id>
+    <amount>936</amount>
+  </Order>
+  <Order>
+    <user-id>b4sq</user-id>
+    <order-id>mdk6</order-id>
+    <product-id>e7u5</product-id>
+    <amount>51</amount>
+  </Order>
+  <ModifyOrder>
+    <order-id>q55o</order-id>
+    <new-amount>142</new-amount>
+  </ModifyOrder>
+  <ModifyOrder>
+    <order-id>8iay</order-id>
+    <new-amount>144</new-amount>
+  </ModifyOrder>
+  <CancelOrder>
+    <order-id>o9wv</order-id>
+  </CancelOrder>
+  <CancelOrder>
+    <order-id>afz6</order-id>
+  </CancelOrder>
+</Root>
