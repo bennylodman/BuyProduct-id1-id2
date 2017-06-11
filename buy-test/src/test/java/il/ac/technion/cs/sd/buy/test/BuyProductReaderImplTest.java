@@ -49,7 +49,7 @@ public class BuyProductReaderImplTest {
 
         return new BuyProductReaderImpl(dbf);
     }
-  /*  @Test
+    @Test
     public void isValidOrderId_xml() throws Exception {
         BuyProductReader buyProductReader = SetupAndBuildBookScoreReader("small.xml");
 
@@ -149,7 +149,7 @@ public class BuyProductReaderImplTest {
         CompletableFuture<?> val2 = buyProductReader.getTotalAmountSpentByUser("2");
         CompletableFuture<?> val3 = buyProductReader.getTotalAmountSpentByUser("3");
 
-        assertEquals(500L*10L,val1.get());
+        assertEquals(500L*5L,val1.get());
         assertEquals(0L,val2.get());
         assertEquals(500L*12L,val3.get());
 
@@ -203,7 +203,7 @@ public class BuyProductReaderImplTest {
         CompletableFuture<?> val3 = buyProductReader.getTotalNumberOfItemsPurchased("benny");
 
         assertEquals(OptionalLong.of(17),val1.get());
-        assertEquals(OptionalLong.empty(),val2.get());
+        assertEquals(OptionalLong.of(0),val2.get());
         assertEquals(OptionalLong.empty(),val3.get());
 
     }
@@ -314,9 +314,8 @@ public class BuyProductReaderImplTest {
         assertEquals( 952, (long) list.get().get(1));
         assertEquals( 591, (long) list.get().get(2));
     }
-*/
-///////////////////////////////////////////////////////////////
 
+///////////////////////
     @Test
     public void orderIdNotFound() throws Exception {
         BuyProductReader buyProductReader = SetupAndBuildBookScoreReader("ourData.xml");
@@ -855,14 +854,14 @@ public class BuyProductReaderImplTest {
     @Test
     public void productOrderedOnceAndThenOverriddenWithAnotherProductShouldHaveNoItemsPurchased() throws Exception {
         BuyProductReader buyProductReader = SetupAndBuildBookScoreReader("ourData.json");
-        Assert.assertEquals(OptionalLong.empty(),buyProductReader.getTotalNumberOfItemsPurchased("idroid").get());
+        Assert.assertEquals(OptionalLong.of(0),buyProductReader.getTotalNumberOfItemsPurchased("idroid").get());
         Assert.assertEquals(OptionalDouble.empty(),buyProductReader.getAverageNumberOfItemsPurchased("idroid").get());
 
     }
     @Test
     public void productNeverOrderedShouldHaveNoItemsPurchased() throws Exception {
         BuyProductReader buyProductReader = SetupAndBuildBookScoreReader("ourData.json");
-        Assert.assertEquals(OptionalLong.empty(),buyProductReader.getTotalNumberOfItemsPurchased("mac").get());
+        Assert.assertEquals(OptionalLong.of(0),buyProductReader.getTotalNumberOfItemsPurchased("mac").get());
         Assert.assertEquals(OptionalDouble.empty(),buyProductReader.getAverageNumberOfItemsPurchased("mac").get());
     }
     @Test
