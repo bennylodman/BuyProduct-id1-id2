@@ -109,11 +109,14 @@ public class BuyProductReaderImpl implements BuyProductReader {
                 {
                     String curr_key = keys_list.get(i);
                     Long curr_val = values_list.get(i);
-                    if(temp_map.containsKey(curr_key))
-                    {
-                        curr_val+=temp_map.get(curr_key);
+                    if(curr_val!=0) {
+                        if (temp_map.containsKey(curr_key)) {
+                            curr_val += temp_map.get(curr_key);
+                        }
+
+                        temp_map.put(curr_key, curr_val);
                     }
-                    temp_map.put(curr_key,curr_val);
+
                 }
                 return temp_map;
             });

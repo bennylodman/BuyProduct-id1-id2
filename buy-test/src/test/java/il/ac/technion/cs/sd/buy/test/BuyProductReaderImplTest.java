@@ -49,7 +49,7 @@ public class BuyProductReaderImplTest {
 
         return new BuyProductReaderImpl(dbf);
     }
-    @Test
+  /*  @Test
     public void isValidOrderId_xml() throws Exception {
         BuyProductReader buyProductReader = SetupAndBuildBookScoreReader("small.xml");
 
@@ -314,7 +314,7 @@ public class BuyProductReaderImplTest {
         assertEquals( 952, (long) list.get().get(1));
         assertEquals( 591, (long) list.get().get(2));
     }
-
+*/
 ///////////////////////////////////////////////////////////////
 
     @Test
