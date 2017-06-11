@@ -371,6 +371,8 @@ public class BuyProductReaderImpl implements BuyProductReader {
         CompletableFuture<List<Long>> res_list;
         CompletableFuture<Long> sum;
 
+        CompletableFuture<List<DataBaseElement>> product_list = productsDB.get_lines_for_single_key(productId,"product");
+
         CompletableFuture<List<DataBaseElement>> order_line_list = ordersDB.get_lines_for_single_key(productId,"product");
 
         res_list = order_line_list.thenCompose(lines ->
@@ -407,16 +409,13 @@ public class BuyProductReaderImpl implements BuyProductReader {
 
         sum =res_list.thenApply(list -> list.stream().mapToLong(Long::longValue).sum());
 
-        return sum.thenApply(val ->
+        return sum.thenCombine(product_list,(val,p_list) ->
         {
-            if(val.equals(0L))
-            {
-                return OptionalLong.empty();
-            }
-            else
-            {
+                if(p_list.isEmpty()) {
+                    return OptionalLong.empty();
+                }
                 return OptionalLong.of(val);
-            }
+
         });
     }
 

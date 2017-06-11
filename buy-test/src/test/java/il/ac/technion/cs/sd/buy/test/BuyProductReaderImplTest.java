@@ -849,7 +849,7 @@ public class BuyProductReaderImplTest {
     @Test
     public void productOrderedAndThenCancelledShouldHaveNoItemsPurchased() throws Exception {
         BuyProductReader buyProductReader = SetupAndBuildBookScoreReader("ourData.json");
-        Assert.assertEquals(OptionalLong.empty(),buyProductReader.getTotalNumberOfItemsPurchased("nokia").get());
+        Assert.assertEquals(OptionalLong.of(0),buyProductReader.getTotalNumberOfItemsPurchased("nokia").get());
         Assert.assertEquals(OptionalDouble.empty(),buyProductReader.getAverageNumberOfItemsPurchased("nokia").get());
     }
     @Test
