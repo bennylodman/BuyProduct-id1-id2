@@ -3,9 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/base.iml" filepath="$PROJECT_DIR$/base.iml" />
+      <module fileurl="file://C:\Users\Nadav\Documents\SoftwareDesignHW\HW2\tmp3\BuyProduct-id1-id2\base.iml" filepath="C:\Users\Nadav\Documents\SoftwareDesignHW\HW2\tmp3\BuyProduct-id1-id2\base.iml" />
       <module fileurl="file://$PROJECT_DIR$/buy-app/buy-app.iml" filepath="$PROJECT_DIR$/buy-app/buy-app.iml" />
+      <module fileurl="file://C:\Users\Nadav\Documents\SoftwareDesignHW\HW2\tmp3\BuyProduct-id1-id2\buy-app\buy-app.iml" filepath="C:\Users\Nadav\Documents\SoftwareDesignHW\HW2\tmp3\BuyProduct-id1-id2\buy-app\buy-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/buy-test/buy-test.iml" filepath="$PROJECT_DIR$/buy-test/buy-test.iml" />
+      <module fileurl="file://C:\Users\Nadav\Documents\SoftwareDesignHW\HW2\tmp3\BuyProduct-id1-id2\buy-test\buy-test.iml" filepath="C:\Users\Nadav\Documents\SoftwareDesignHW\HW2\tmp3\BuyProduct-id1-id2\buy-test\buy-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+      <module fileurl="file://C:\Users\Nadav\Documents\SoftwareDesignHW\HW2\tmp3\BuyProduct-id1-id2\library\library.iml" filepath="C:\Users\Nadav\Documents\SoftwareDesignHW\HW2\tmp3\BuyProduct-id1-id2\library\library.iml" />
     </modules>
   </component>
 </project>

@@ -341,6 +341,7 @@ public class BuyProductReaderImpl implements BuyProductReader {
         })
         .distinct()
         .filter(s -> !s.isEmpty())
+        .sorted()
         .collect(Collectors.toList()));
     }
 
