@@ -285,9 +285,9 @@ public class BuyProductReaderImpl implements BuyProductReader {
         CompletableFuture<List<DataBaseElement>> future_orders_list =  ordersDB.get_lines_for_single_key(userId,"user");
 
 
-        CompletableFuture<List<Integer>> transactions_prices = future_orders_list.thenCompose(orders_list ->
+        CompletableFuture<List<Long>> transactions_prices = future_orders_list.thenCompose(orders_list ->
         {
-            List<CompletableFuture<Integer>> priceList = new ArrayList<>();
+            List<CompletableFuture<Long>> priceList = new ArrayList<>();
             for (DataBaseElement order: orders_list)
             {
                 String order_id = getOrderId(order);
@@ -313,7 +313,7 @@ public class BuyProductReaderImpl implements BuyProductReader {
                 {
                     amount=CompletableFuture.completedFuture(0);
                 }
-                CompletableFuture<Integer> orderPrice = price.thenCombine(amount, (price_t,amount_t) -> price_t*amount_t);
+                CompletableFuture<Long> orderPrice = price.thenCombine(amount, (price_t,amount_t) -> (long)price_t*amount_t);
                 priceList.add(orderPrice);
             }
             return CompletableFuture.allOf(priceList.toArray(new CompletableFuture[priceList.size()]))
@@ -324,7 +324,7 @@ public class BuyProductReaderImpl implements BuyProductReader {
         });
 
         return transactions_prices.thenApply(list -> list.stream()
-                .mapToLong(Integer::longValue).sum());
+                .reduce((long)0,(A,B)->A+B));
     }
 
     @Override
