@@ -309,6 +309,10 @@ public class BuyProductReaderImpl implements BuyProductReader {
                                 modified_lines.get(modified_lines.size()-1).get("amount")).thenApply(Integer::parseInt);
                     }
                 }
+                else
+                {
+                    amount=CompletableFuture.completedFuture(0);
+                }
                 CompletableFuture<Integer> orderPrice = price.thenCombine(amount, (price_t,amount_t) -> price_t*amount_t);
                 priceList.add(orderPrice);
             }
