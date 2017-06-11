@@ -20,40 +20,6 @@ public class DataBaseImpl implements DataBase {
     private final FutureLineStorageFactory futureLineStorageFactory;
     private Boolean allow_multiples;
 
-
-    //Private Functions
-/*
-    private CompletableFuture<List<String>> get_lines_with_key_starting_from_index (FutureLineStorage lineStorage,
-                                                                                    final String key,
-                                                                                    final List<String> keysList,
-                                                                                    final Integer index,
-                                                                                    final Integer number_of_lines) {
-        if(index >= number_of_lines)
-        {
-            return CompletableFuture.completedFuture(new ArrayList<String>());
-        }
-        CompletableFuture<List<String>> listCompletableFuture = get_lines_with_key_starting_from_index (lineStorage,
-                key,
-                keysList,
-                index+1,
-                number_of_lines);
-
-        CompletableFuture<String> curr_line = lineStorage.read(index);
-
-        return listCompletableFuture.thenCombine(curr_line,(list,curr_line_val) ->
-        {
-            String[] values = curr_line_val.split(",");
-            String curr_key = create_string_separated_with_comma(values,keysList.size() );
-            Integer compare = key.compareTo(curr_key);
-            if (compare == 0) {
-                String output = curr_line_val.substring(key.length());
-                list.add(0,output);
-            }
-
-            return list;
-        });
-    }
-*/
     private CompletableFuture<List<String>> get_lines_with_key_starting_from_index (FutureLineStorage lineStorage,
                                                                                     final String key,
                                                                                     final List<String> keysList,
@@ -101,11 +67,6 @@ public class DataBaseImpl implements DataBase {
 
 
     }
-
-
-
-
-
 
     private String createFileNameFromPermutation(List<String> keyList,
                                                  List<Integer> premutationIndexList)

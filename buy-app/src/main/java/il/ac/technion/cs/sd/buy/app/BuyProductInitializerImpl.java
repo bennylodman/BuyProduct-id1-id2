@@ -136,7 +136,6 @@ public class BuyProductInitializerImpl implements BuyProductInitializer {
 
         public List<String> getModifiedList() { return modifiedList; }
 
-
         public DataListsFromJson invoke() {
             Map<String, String> ordersMap = new TreeMap<>();
             Map<String, String> productsMap = new TreeMap<>();
@@ -159,10 +158,6 @@ public class BuyProductInitializerImpl implements BuyProductInitializer {
                         case "order":
                             // add to map - (will remove old)
                             String orderId = new String(obj.getString("order-id"));
-                            if(obj.getString("order-id").compareTo("3c13")==0)
-                            {
-                                System.out.println("help");
-                            }
                             csvOrder = obj.getString("order-id") + "," +
                                     obj.getString("user-id") + "," +
                                     obj.getString("product-id") + "," +
